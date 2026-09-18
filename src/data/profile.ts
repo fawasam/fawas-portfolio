@@ -23,39 +23,31 @@ type Pill = {
 };
 
 export const headlinePills: Pill[] = [
-  { label: "Next.js", bg: "bg-[#eef5fd]", text: "text-[#2563eb]", border: "border-[#cbe0fb]" },
-  { label: "Kafka", bg: "bg-[#f2eefd]", text: "text-[#6339cc]", border: "border-[#dcd1f9]" },
-  { label: "Agora", bg: "bg-[#e6f7f6]", text: "text-[#0f766e]", border: "border-[#bfe8e4]" },
-  { label: "Google Gemini", bg: "bg-[#eefaf3]", text: "text-[#15803d]", border: "border-[#c4ebd3]" },
+  {
+    label: "Next.js",
+    bg: "bg-[#eef5fd]",
+    text: "text-[#2563eb]",
+    border: "border-[#cbe0fb]",
+  },
+  {
+    label: "Kafka",
+    bg: "bg-[#f2eefd]",
+    text: "text-[#6339cc]",
+    border: "border-[#dcd1f9]",
+  },
+  {
+    label: "Agora",
+    bg: "bg-[#e6f7f6]",
+    text: "text-[#0f766e]",
+    border: "border-[#bfe8e4]",
+  },
+  {
+    label: "Google Gemini",
+    bg: "bg-[#eefaf3]",
+    text: "text-[#15803d]",
+    border: "border-[#c4ebd3]",
+  },
 ];
 
-export const skills = [
-  "TypeScript",
-  "Next.js",
-  "React",
-  "Node.js",
-  "Bun",
-  "Strapi",
-  "Tailwind CSS",
-  "Zustand",
-  "Socket.IO",
-  "Agora (WebRTC)",
-  "Three.js",
-  "GSAP",
-  "Apache Kafka",
-  "BullMQ",
-  "Redis",
-  "MongoDB",
-  "PostgreSQL",
-  "MySQL",
-  "Google Gemini",
-  "Qdrant",
-  "Elasticsearch",
-  "AWS",
-  "Docker",
-  "GitLab CI",
-  "Jenkins",
-  "Sentry",
-  "Razorpay",
-  "Stripe",
-];
+// Skills are derived automatically from every project's tech stack —
+// see src/lib/skills.ts.

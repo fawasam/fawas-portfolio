@@ -80,7 +80,7 @@ export default function OffScreenGallery() {
   return (
     <section className="pt-4 space-y-6" data-purpose="off-screen-photos">
       <h2 className="text-[14.5px] font-normal text-neutral-800 flex items-center gap-2">
-        <span className="text-neutral-400 select-none">##</span> Off screen
+        <span className="text-neutral-400 select-none">$</span> ls ~/photos
       </h2>
 
       <div

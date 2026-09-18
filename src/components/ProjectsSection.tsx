@@ -6,7 +6,7 @@ export default function ProjectsSection() {
     <section className="pt-4 space-y-4" data-purpose="projects-tree">
       <h2 className="text-[14.5px] font-normal text-neutral-800 flex items-center justify-between gap-2">
         <span className="flex items-center gap-2">
-          <span className="text-neutral-400 select-none">##</span> Projects
+          <span className="text-neutral-400 select-none">$</span> ls ~/projects --latest 5
         </span>
         <Link
           href="/projects"

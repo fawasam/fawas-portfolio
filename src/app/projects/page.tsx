@@ -18,7 +18,7 @@ export default function ProjectsIndexPage() {
       </Link>
 
       <h1 className="text-[24px] sm:text-[26px] font-semibold tracking-tight text-neutral-900 flex items-baseline gap-2.5">
-        <span className="text-neutral-400 font-normal select-none">#</span> Projects
+        <span className="text-neutral-400 font-normal select-none">$</span> ls ~/projects
       </h1>
 
       <ProjectsFilterList />

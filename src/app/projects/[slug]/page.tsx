@@ -68,7 +68,7 @@ export default async function ProjectDetailPage({
 
       <div className="space-y-3 pt-4 border-t border-neutral-200/80">
         <h2 className="text-[14.5px] font-normal text-neutral-800 flex items-center gap-2">
-          <span className="text-neutral-400 select-none">##</span> Architecture
+          <span className="text-neutral-400 select-none">$</span> cat ARCHITECTURE.md
         </h2>
         <MermaidDiagram chart={project.diagram} />
       </div>

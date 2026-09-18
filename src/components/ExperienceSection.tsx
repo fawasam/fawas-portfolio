@@ -6,7 +6,7 @@ export default function ExperienceSection() {
     <section className="pt-4 space-y-4" data-purpose="experience-tree">
       <h2 className="text-[14.5px] font-normal text-neutral-800 flex items-center justify-between gap-2">
         <span className="flex items-center gap-2">
-          <span className="text-neutral-400 select-none">##</span> Experience
+          <span className="text-neutral-400 select-none">$</span> git log --oneline career
         </span>
         <Link
           href="/experience"

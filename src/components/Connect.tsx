@@ -7,7 +7,7 @@ export default function Connect() {
   return (
     <section className="pt-4 space-y-3" data-purpose="connect-contact">
       <h2 className="text-[14.5px] font-normal text-neutral-800 flex items-center gap-2">
-        <span className="text-neutral-400 select-none">##</span> Connect
+        <span className="text-neutral-400 select-none">$</span> cat ~/links.txt
       </h2>
       <p className="text-[14px] leading-[1.75] text-neutral-700 font-normal">
         I&apos;m open to new opportunities, especially roles in the UAE/GCC. Get in touch by{" "}

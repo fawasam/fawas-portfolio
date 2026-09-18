@@ -1,13 +1,13 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import ExperienceList from "@/components/ExperienceList";
+import SkillsList from "@/components/SkillsList";
 
 export const metadata: Metadata = {
-  title: "Experience — Fawas A M",
-  description: "Work experience of Fawas A M — Software Engineer & Technical Lead.",
+  title: "Skills — Fawas A M",
+  description: "Technical skills of Fawas A M — Software Engineer & Technical Lead.",
 };
 
-export default function ExperienceIndexPage() {
+export default function SkillsIndexPage() {
   return (
     <main className="w-full max-w-[620px] mx-auto px-5 sm:px-6 py-16 sm:py-24 space-y-8 font-mono">
       <Link
@@ -18,10 +18,10 @@ export default function ExperienceIndexPage() {
       </Link>
 
       <h1 className="text-[24px] sm:text-[26px] font-semibold tracking-tight text-neutral-900 flex items-baseline gap-2.5">
-        <span className="text-neutral-400 font-normal select-none">$</span> git log --oneline career
+        <span className="text-neutral-400 font-normal select-none">$</span> ls ~/stack
       </h1>
 
-      <ExperienceList />
+      <SkillsList />
     </main>
   );
 }

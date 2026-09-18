@@ -4,7 +4,15 @@ import FolderIcon, { type FolderColor } from "@/components/FolderIcon";
 
 export const projectFolderColors: FolderColor[] = ["blue", "amber", "violet", "emerald", "rose"];
 
-export default function ProjectRow({ project, color }: { project: Project; color: FolderColor }) {
+export default function ProjectRow({
+  project,
+  color,
+  compact = false,
+}: {
+  project: Project;
+  color: FolderColor;
+  compact?: boolean;
+}) {
   return (
     <div className="tree-item-branch">
       <Link
@@ -16,21 +24,27 @@ export default function ProjectRow({ project, color }: { project: Project; color
             <FolderIcon color={color} />
           </span>
           <span className="min-w-0">
-            <span className="text-neutral-700 transition-colors duration-300 group-hover/project:text-blue-600 group-hover/project:font-medium">
+            <span
+              className={`text-neutral-700 transition-colors duration-300 group-hover/project:text-blue-600 group-hover/project:font-medium ${compact ? "text-[12.5px]" : ""}`}
+            >
               {project.title}
             </span>
             <span className="text-neutral-300 ml-1.5 transition-colors duration-300 group-hover/project:text-blue-400">
               →
             </span>
-            <span className="block sm:inline text-[11.5px] text-neutral-400 sm:ml-2 transition-colors duration-300 group-hover/project:text-blue-400">
-              {project.tagline}
-            </span>
+            {!compact && (
+              <span className="block sm:inline text-[11.5px] text-neutral-400 sm:ml-2 transition-colors duration-300 group-hover/project:text-blue-400">
+                {project.tagline}
+              </span>
+            )}
           </span>
         </span>
         <span className="flex items-center gap-2 shrink-0">
-          <span className="text-[10.5px] text-neutral-400 whitespace-nowrap px-1.5 py-0.5 rounded border border-neutral-200">
-            {project.category}
-          </span>
+          {!compact && (
+            <span className="text-[10.5px] text-neutral-400 whitespace-nowrap px-1.5 py-0.5 rounded border border-neutral-200">
+              {project.category}
+            </span>
+          )}
           <span className="text-[11.5px] text-neutral-400 whitespace-nowrap transition-colors duration-300 group-hover/project:text-blue-400">
             {project.year}
           </span>
