@@ -12,8 +12,8 @@ export default function Header() {
         </p>
       </div>
       <p className="text-[14.5px] leading-[1.8] text-neutral-700 font-normal">
-        I architect high-concurrency, fault-tolerant systems across fintech, healthcare, logistics, and
-        e-commerce — using{" "}
+        I architect high-concurrency, fault-tolerant systems across fintech, e-commerce, logistics, and
+        real-time communication — using{" "}
         {headlinePills.map((pill) => (
           <span
             key={pill.label}
@@ -22,9 +22,10 @@ export default function Header() {
             {pill.label}
           </span>
         ))}
-        , event-driven architecture, and AI/RAG system design. Currently leading engineering at WebCastle
-        Media, mentoring a team of 4 and shipping enterprise platforms end to end. Open to relocating to
-        the UAE/GCC.
+        , event-driven architecture, and AI/RAG system design. My work spans headless CMS platforms,
+        WebRTC consultation apps, and immersive 3D/WebGL experiences, backed by enterprise-grade AWS and
+        DevOps pipelines. Currently leading engineering at WebCastle Media, mentoring a team of 4 and
+        shipping enterprise platforms end to end. Open to relocating to the UAE/GCC.
       </p>
     </section>
   );

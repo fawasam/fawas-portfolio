@@ -62,6 +62,7 @@ body {
   z-index: var(--z);
   transform: rotate(var(--rotate));
   transition: transform 300ms ease, box-shadow 300ms ease, z-index 300ms ease;
+  cursor: pointer;
 }
 .polaroid:hover {
   transform: translateY(-10px) rotate(0deg) scale(1.06);
@@ -77,3 +78,38 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+
+@keyframes polaroidViewerIn {
+  0% {
+    opacity: 0;
+    transform: perspective(1000px) rotate(var(--initial-rot, -8deg)) rotateY(38deg) scale(0.72) translateY(24px);
+  }
+  65% {
+    opacity: 1;
+    transform: perspective(1000px) rotate(calc(var(--initial-rot, -8deg) * -0.12)) rotateY(-4deg) scale(1.02) translateY(-4px);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(1000px) rotate(0deg) rotateY(0deg) scale(1) translateY(0);
+  }
+}
+
+@keyframes polaroidViewerOut {
+  0% {
+    opacity: 1;
+    transform: perspective(1000px) rotate(0deg) rotateY(0deg) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: perspective(1000px) rotate(var(--initial-rot, -8deg)) rotateY(25deg) scale(0.85);
+  }
+}
+
+.polaroid-viewer-card-in {
+  animation: polaroidViewerIn 460ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.polaroid-viewer-card-out {
+  animation: polaroidViewerOut 220ms ease-in forwards;
+}
+
