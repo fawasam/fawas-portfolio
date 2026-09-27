@@ -15,7 +15,7 @@ export const site = {
   city: "Ernakulam, India",
   timezone: "UTC+5:30",
   email: "fawasmundakkottil@gmail.com",
-  resumeUrl: "/resume.pdf",
+  resumeUrl: "/fawas-am-resume.pdf",
   githubHandle: "fawasam",
   repoCount: "127",
 };
