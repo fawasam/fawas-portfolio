@@ -63,6 +63,10 @@ async function sendViaResend(msg: Message): Promise<boolean> {
     const detail = await res.text().catch(() => "");
     throw new Error(`resend ${res.status}: ${detail.slice(0, 200)}`);
   }
+
+  // The provider's id, so a delivery can be traced in the Resend dashboard.
+  const sent = (await res.json().catch(() => null)) as { id?: string } | null;
+  console.log(`[contact] resend accepted${sent?.id ? ` id=${sent.id}` : ""}`);
   return true;
 }
 
