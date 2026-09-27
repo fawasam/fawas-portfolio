@@ -211,6 +211,8 @@ export type Project = {
   repoUrl?: string;
   /** Shown when there is nothing public to link to. */
   privateNote?: string;
+  /** Real screenshots for the collage; falls back to labelled boxes. */
+  shots?: { main?: { src: string; alt: string }; secondary?: { src: string; alt: string } };
   terminal: { file: string; lines: { text: string; tone?: "accent" | "green" | "amber" }[] };
 };
 
@@ -235,6 +237,16 @@ export const projects: Project[] = [
     ],
     stack: ["Bun", "Next.js", "Node.js", "Prisma", "MariaDB", "Kafka", "BullMQ", "Qdrant"],
     privateNote: "Client platform · private source",
+    shots: {
+      main: {
+        src: "/work/meghante-home.webp",
+        alt: "Meghanté storefront homepage, with the hero campaign banner",
+      },
+      secondary: {
+        src: "/work/meghante-products.webp",
+        alt: "Meghanté product listing, with filters and 61 products",
+      },
+    },
     terminal: {
       file: "~/muthoot-exim",
       lines: [

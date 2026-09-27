@@ -11,7 +11,14 @@ function Collage({ project, flipped }: { project: Project; flipped: boolean }) {
     <div className="group relative mx-auto aspect-4/3 w-full max-w-[560px] select-none">
       <div className="absolute right-0 top-0 w-[44%] animate-float [animation-delay:-2s]">
         <div className="rotate-[6deg] transition-[rotate,translate] duration-500 ease-out-soft group-hover:-translate-y-2 group-hover:translate-x-2 group-hover:rotate-[9deg]">
-          <BrowserFrame photoLabel="[ shot ]" bodyClassName="h-32" size="sm" />
+          <BrowserFrame
+            photoLabel="[ shot ]"
+            src={project.shots?.secondary?.src}
+            alt={project.shots?.secondary?.alt}
+            sizes="(max-width: 768px) 40vw, 250px"
+            bodyClassName="h-32"
+            size="sm"
+          />
         </div>
       </div>
 
@@ -20,6 +27,8 @@ function Collage({ project, flipped }: { project: Project; flipped: boolean }) {
           <BrowserFrame
             domain={project.domain}
             photoLabel="[ product screenshot ]"
+            src={project.shots?.main?.src}
+            alt={project.shots?.main?.alt}
             bodyClassName="h-52"
           />
         </div>

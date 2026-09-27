@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { ReactNode } from "react";
 import { PhotoPlaceholder } from "./photo";
 
@@ -17,11 +18,18 @@ function TrafficLights({ size = "md" }: { size?: "sm" | "md" }) {
 export function BrowserFrame({
   domain,
   photoLabel,
+  src,
+  alt,
+  sizes = "(max-width: 768px) 80vw, 480px",
   bodyClassName = "h-52",
   size = "md",
 }: {
   domain?: string;
   photoLabel?: string;
+  /** Give it a src and the chrome wraps a real screenshot. */
+  src?: string;
+  alt?: string;
+  sizes?: string;
   bodyClassName?: string;
   size?: "sm" | "md";
 }) {
@@ -35,7 +43,13 @@ export function BrowserFrame({
           </span>
         )}
       </div>
-      <PhotoPlaceholder label={photoLabel} className={bodyClassName} />
+      {src ? (
+        <div className={`relative ${bodyClassName}`}>
+          <Image src={src} alt={alt ?? ""} fill sizes={sizes} className="object-cover object-top" />
+        </div>
+      ) : (
+        <PhotoPlaceholder label={photoLabel} className={bodyClassName} />
+      )}
     </div>
   );
 }
