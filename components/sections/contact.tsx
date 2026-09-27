@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { contact } from "@/lib/content";
+import { contact, site } from "@/lib/content";
 import Reveal from "@/components/ui/reveal";
 import { Underline } from "@/components/ui/doodles";
 import { Button, Container, Eyebrow, HandNote } from "@/components/ui/primitives";
@@ -12,18 +12,35 @@ const field =
   "transition-[border-color,box-shadow] duration-200 placeholder:text-black/35 " +
   "focus:border-ink/60 focus:ring-4 focus:ring-ink/[0.06]";
 
-type Status = "idle" | "sending" | "sent" | "error";
+type Status = "idle" | "sending" | "sent" | "error" | "unconfigured";
+
+/** Prefilled compose link, used when no mail provider is configured. */
+function mailtoFor(data: Record<string, string>) {
+  const subject = `Portfolio — ${data.reason || "hello"} from ${data.name || ""}`.trim();
+  const body = [
+    `From: ${data.name ?? ""}`,
+    `Reply to: ${data.contact ?? ""}`,
+    `Reason: ${data.reason || "—"}`,
+    "",
+    data.message ?? "",
+  ].join("\n");
+  return `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
 
 export default function Contact() {
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");
+  const [fallback, setFallback] = useState("");
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    // Hold the node: currentTarget is null once we await.
+    const form = event.currentTarget;
     setStatus("sending");
     setMessage("");
+    setFallback("");
 
-    const data = Object.fromEntries(new FormData(event.currentTarget).entries());
+    const data = Object.fromEntries(new FormData(form).entries()) as Record<string, string>;
 
     try {
       const response = await fetch("/api/contact", {
@@ -31,7 +48,15 @@ export default function Contact() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-      const body = (await response.json()) as { error?: string };
+      const body = (await response.json()) as { error?: string; configured?: boolean };
+
+      if (response.status === 501 && body.configured === false) {
+        // Nothing is wired up — hand them a prefilled email instead of an error.
+        setStatus("unconfigured");
+        setFallback(mailtoFor(data));
+        setMessage("Sending isn’t wired up on this deployment yet —");
+        return;
+      }
 
       if (!response.ok) {
         setStatus("error");
@@ -41,10 +66,11 @@ export default function Contact() {
 
       setStatus("sent");
       setMessage("Thanks — that landed. I’ll get back to you shortly.");
-      event.currentTarget.reset();
+      form.reset();
     } catch {
       setStatus("error");
-      setMessage("Network error. Try again, or email me directly.");
+      setFallback(mailtoFor(data));
+      setMessage("Could not reach the server —");
     }
   }
 
@@ -150,7 +176,12 @@ export default function Contact() {
                   aria-live="polite"
                   className={`text-sm ${status === "error" ? "text-[#bf000f]" : "text-muted"}`}
                 >
-                  {message}
+                  {message}{" "}
+                  {fallback && (
+                    <a href={fallback} className="link-underline font-medium text-ink">
+                      send it as an email instead
+                    </a>
+                  )}
                 </p>
               )}
             </div>
