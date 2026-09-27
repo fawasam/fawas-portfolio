@@ -273,6 +273,16 @@ export const projects: Project[] = [
     ],
     stack: ["Next.js", "Node.js", "Tabby", "Tamara", "Apple Pay", "Google Pay"],
     liveUrl: "https://yateem.com/ae-en",
+    shots: {
+      main: {
+        src: "/work/yateem-home.webp",
+        alt: "Yateem Optician storefront, with the Cartier eyewear campaign",
+      },
+      secondary: {
+        src: "/work/yateem-categories.webp",
+        alt: "Yateem category grid: sunglasses, eyeglasses, AI glasses and contact lenses",
+      },
+    },
     terminal: {
       file: "yateem/checkout.config.ts",
       lines: [
@@ -309,6 +319,16 @@ export const projects: Project[] = [
     },
     stack: ["Next.js", "Express", "MongoDB", "Redux Toolkit", "TanStack Query", "Socket.IO", "PayTabs"],
     liveUrl: "https://thelaundryhub.ae/en/",
+    shots: {
+      main: {
+        src: "/work/laundry-hub-home.webp",
+        alt: "Laundry Hub homepage, with the booking slot picker",
+      },
+      secondary: {
+        src: "/work/laundry-hub-services.webp",
+        alt: "Laundry Hub services grid, each with its own booking action",
+      },
+    },
     terminal: {
       file: "~/laundry-hub",
       lines: [
@@ -332,6 +352,16 @@ export const projects: Project[] = [
     badges: [{ label: "2,000+ concurrent calls", tone: "achieve" }],
     stack: ["TypeScript", "Express", "MongoDB", "Agora RTC", "Socket.IO", "Redis"],
     privateNote: "Client platform · private source",
+    shots: {
+      main: {
+        src: "/work/talkiyo-home.webp",
+        alt: "Talkiyo landing page, with the listener and language-picker screens",
+      },
+      secondary: {
+        src: "/work/talkiyo-calls.webp",
+        alt: "Talkiyo call history, with per-call billing and the report and block flows",
+      },
+    },
     terminal: {
       file: "~/talkiyo",
       lines: [
@@ -366,6 +396,16 @@ export const projects: Project[] = [
     },
     stack: ["FastAPI", "Qdrant", "OpenAI", "BullMQ", "PostgreSQL"],
     privateNote: "Client platform · private source",
+    shots: {
+      main: {
+        src: "/work/muthoot-capital-home.webp",
+        alt: "Muthoot Capital homepage, with its loan product entry points",
+      },
+      secondary: {
+        src: "/work/muthoot-capital-about.webp",
+        alt: "Muthoot Capital about page, describing the group's lending business",
+      },
+    },
     terminal: {
       file: "~/loan-assistant",
       lines: [
