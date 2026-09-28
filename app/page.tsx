@@ -15,7 +15,7 @@ export default function Page() {
       <main id="main">
         <Hero />
         <About />
-        <Process />
+        {/* <Process /> */}
         <Work />
         <Lab />
         <Fun />
